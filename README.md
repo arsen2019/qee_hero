@@ -1,30 +1,42 @@
-# QEE Animated Hero Concept
+# QEE Clarity Orbit Hero
 
-A zero-cost, code-driven animated hero prototype based on the approved “Clarity Engine” visual direction.
+A full-width, scroll-driven Three.js hero concept for QEE.
 
-## Technology
+## Concept
 
-- Semantic HTML
-- CSS animations
-- Inline SVG
-- Minimal JavaScript for mobile navigation
-- No paid APIs, generated video, third-party animation libraries, or build step
+Fragmented operational signals flow into a smooth glass assurance system. Internal audit, risk, finance, governance and cybersecurity align around a central clarity lens. The final stage produces three structured output currents: Quality, Efficiency and Effectiveness.
 
-## Preview locally
+## Features
+
+- Full-screen live Three.js scene
+- Smooth spheres, torus rings and high-resolution tube curves
+- Four scroll-controlled chapters
+- Pointer-responsive camera, lighting and object parallax
+- QEE dark/cyan visual palette
+- Loading screen that prevents unstyled HTML flashes
+- Responsive mobile composition
+- Reduced-motion support
+- Node.js 20 configuration for Vercel
+
+## Local development
 
 ```bash
-cd qee-animated-hero
-python3 -m http.server 4173
+npm ci --no-audit --no-fund
+npm run dev
 ```
 
-Then open `http://localhost:4173`.
+## Production build
 
-## Animation sequence
+```bash
+npm run build
+```
 
-1. Brand copy and actions reveal progressively.
-2. Fragmented input signals flow toward the central engine.
-3. The circular system rotates and breathes subtly.
-4. Service nodes float and pulse.
-5. Organized output signals move toward the right.
+## Vercel
 
-The prototype respects `prefers-reduced-motion` and adapts for tablet and mobile.
+- Framework: Vite
+- Node.js: 20.x
+- Build command: `npm run build`
+- Output directory: `dist`
+- Install command: `npm ci --no-audit --no-fund`
+
+The repository includes `.nvmrc`, `.node-version`, `package.json` engines and `vercel.json` configured for Node 20.

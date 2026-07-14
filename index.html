@@ -1,240 +1,148 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Animated QEE hero concept: complexity transformed into clarity." />
-  <title>QEE — Animated Hero Concept</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="hero" id="top">
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QEE interactive clarity and assurance hero concept." />
+    <meta name="theme-color" content="#041012" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      document.documentElement.classList.add('has-js');
+      window.__qeeBootFallback = window.setTimeout(function () {
+        document.documentElement.classList.add('is-ready');
+        document.body && document.body.classList.remove('is-loading');
+      }, 9000);
+    </script>
+    <style>
+      html, body { margin: 0; min-height: 100%; background: #041012; }
+      body.is-loading { overflow: hidden; }
+      body.is-loading > :not(#boot-screen) { visibility: hidden; }
+      #boot-screen {
+        position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center;
+        overflow: hidden; color: #f4f7f3; background:
+          radial-gradient(circle at 50% 48%, rgba(40,215,209,.11), transparent 30%),
+          #041012;
+        font-family: Manrope, system-ui, sans-serif;
+        opacity: 1; visibility: visible;
+        transition: opacity .58s cubic-bezier(.22,.75,.25,1), visibility .58s step-end;
+      }
+      #boot-screen::before, #boot-screen::after {
+        content: ""; position: absolute; border-radius: 50%;
+        border: 1px solid rgba(165,242,238,.08);
+      }
+      #boot-screen::before { width: 27rem; height: 27rem; animation: boot-orbit 8s linear infinite; }
+      #boot-screen::after { width: 19rem; height: 19rem; animation: boot-orbit 6s linear infinite reverse; }
+      .boot-inner { position: relative; display: grid; justify-items: center; gap: 14px; text-align: center; }
+      .boot-brand { font-family: "Cormorant Garamond", Georgia, serif; font-size: 36px; font-weight: 600; letter-spacing: .06em; }
+      .boot-progress { width: 150px; height: 1px; margin-top: 7px; overflow: hidden; background: rgba(244,247,243,.11); }
+      .boot-progress span { display: block; width: 43%; height: 100%; background: #54ddd7; animation: boot-line 1.25s ease-in-out infinite; }
+      .boot-label { margin: 0; color: rgba(244,247,243,.48); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+      html.is-ready #boot-screen { opacity: 0; visibility: hidden; pointer-events: none; }
+      @keyframes boot-line { from { transform: translateX(-120%); } to { transform: translateX(350%); } }
+      @keyframes boot-orbit { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { #boot-screen::before, #boot-screen::after, .boot-progress span { animation: none; } }
+    </style>
+    <title>QEE — Clarity Orbit</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="is-loading">
+    <div id="boot-screen" role="status" aria-label="Loading QEE experience">
+      <div class="boot-inner">
+        <div class="boot-brand">QEE</div>
+        <div class="boot-progress" aria-hidden="true"><span></span></div>
+        <p class="boot-label">Aligning clarity and assurance</p>
+      </div>
+    </div>
 
-    <header class="site-header shell">
-      <a class="brand" href="#top" aria-label="QEE home">QEE</a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#services">Services <span aria-hidden="true">⌄</span></a>
-        <a href="#about">About</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <main class="experience" id="top">
+      <div class="sticky-hero">
+        <div class="scene-wrap" aria-hidden="true">
+          <canvas id="scene"></canvas>
+          <div class="scene-shade"></div>
+          <div class="scene-grain"></div>
+        </div>
 
-    <section class="hero-grid shell">
-      <div class="hero-copy">
-        <p class="eyebrow reveal reveal-1">AUDIT · RISK · FINANCE · TECHNOLOGY</p>
-        <h1 class="reveal reveal-2">Turn complexity and risk into <em>confident decisions.</em></h1>
-        <p class="intro reveal reveal-3">
-          Strategic consulting and assurance that strengthens financial clarity,
-          governance, cybersecurity and operational performance.
-        </p>
-        <div class="actions reveal reveal-4">
-          <a class="button button-primary" href="#contact">
-            <span>Schedule a free consultation</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
-          <a class="button button-secondary" href="#services">
-            <span>Explore our services</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
+        <header class="site-header shell">
+          <a class="brand" href="#top" aria-label="QEE home">QEE</a>
+
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#insights">Blog</a>
+            <a href="#contact">Contact</a>
+            <a class="nav-cta" href="#contact">Schedule a consultation <span>↗</span></a>
+          </nav>
+        </header>
+
+        <div class="copy-layer shell" aria-live="polite">
+          <article class="scene-copy scene-copy--0 is-active" data-copy="0">
+            <p class="eyebrow"><span>01</span> QUALITY · EFFICIENCY · EFFECTIVENESS</p>
+            <h1>Turn uncertainty into<br /><em>confident decisions.</em></h1>
+            <p class="intro">QEE brings financial clarity, risk visibility, stronger governance, and actionable insight to organizations that need to operate smarter.</p>
+            <div class="actions">
+              <a class="button button-primary" href="#contact">Schedule a consultation <i>↗</i></a>
+              <a class="button button-secondary" href="#services">Explore our services <i>→</i></a>
+            </div>
+          </article>
+
+          <article class="scene-copy scene-copy--1" data-copy="1">
+            <p class="eyebrow"><span>02</span> INTERNAL AUDIT & RISK MANAGEMENT</p>
+            <h2>Make hidden risk<br /><em>visible early.</em></h2>
+            <p class="intro">Independent assurance and risk-based audit reveal the signals that matter before uncertainty becomes operational impact.</p>
+          </article>
+
+          <article class="scene-copy scene-copy--2" data-copy="2">
+            <p class="eyebrow"><span>03</span> FINANCE · GOVERNANCE · CYBERSECURITY</p>
+            <h2>Align every control<br />around one <em>clear view.</em></h2>
+            <p class="intro">Financial management, IT governance, cybersecurity, and assurance converge into a coordinated system leaders can understand and trust.</p>
+          </article>
+
+          <article class="scene-copy scene-copy--3" data-copy="3">
+            <p class="eyebrow"><span>04</span> ACTIONABLE INSIGHT & PERFORMANCE</p>
+            <h2>Clarity that moves<br />the whole <em>organization.</em></h2>
+            <p class="intro">The QEE framework turns assessment into practical action—improving quality, efficiency, effectiveness, compliance, and sustainable performance.</p>
+            <div class="actions">
+              <a class="button button-primary" href="#contact">Work with QEE <i>↗</i></a>
+            </div>
+          </article>
         </div>
-        <div class="service-strip reveal reveal-5" id="services" aria-label="Core services">
-          <span><i class="mini-icon shield"></i>Internal Audit</span>
-          <span><i class="mini-icon chart"></i>Risk Management</span>
-          <span><i class="mini-icon lock"></i>Cybersecurity</span>
-          <span><i class="mini-icon columns"></i>IT Governance</span>
+
+        <aside class="stage-meter" aria-hidden="true">
+          <div class="meter-line"><span id="meter-fill"></span></div>
+          <ol>
+            <li class="is-active" data-meter="0"><span>01</span> Complexity</li>
+            <li data-meter="1"><span>02</span> Assurance</li>
+            <li data-meter="2"><span>03</span> Insight</li>
+            <li data-meter="3"><span>04</span> Performance</li>
+          </ol>
+        </aside>
+
+        <div class="hero-footer shell">
+          <div class="scroll-cue"><span></span> Scroll to bring the system into focus</div>
+          <div class="system-state"><i></i><span id="system-state">SIGNALS ENTERING</span></div>
         </div>
+
+        <div class="cursor-orbit" aria-hidden="true"><span></span></div>
       </div>
 
-      <div class="engine-wrap reveal reveal-visual" aria-label="Animated clarity engine illustration">
-        <svg class="engine" viewBox="0 0 820 680" role="img" aria-labelledby="engine-title engine-desc">
-          <title id="engine-title">QEE Clarity Engine</title>
-          <desc id="engine-desc">Fragmented business signals converge into a central clarity engine connected to finance, risk, audit, governance and cybersecurity.</desc>
-          <defs>
-            <radialGradient id="coreFill" cx="45%" cy="35%" r="70%">
-              <stop offset="0%" stop-color="#375988" stop-opacity="0.96" />
-              <stop offset="58%" stop-color="#112c51" stop-opacity="0.94" />
-              <stop offset="100%" stop-color="#061426" stop-opacity="0.98" />
-            </radialGradient>
-            <radialGradient id="nodeFill" cx="35%" cy="30%" r="80%">
-              <stop offset="0%" stop-color="#224b79" stop-opacity="0.94" />
-              <stop offset="100%" stop-color="#071829" stop-opacity="0.98" />
-            </radialGradient>
-            <linearGradient id="lineGradient" x1="0" x2="1">
-              <stop offset="0%" stop-color="#2c77d5" stop-opacity="0.15" />
-              <stop offset="42%" stop-color="#5db8ff" stop-opacity="0.9" />
-              <stop offset="100%" stop-color="#5ee0c2" stop-opacity="0.75" />
-            </linearGradient>
-            <linearGradient id="outputGradient" x1="0" x2="1">
-              <stop offset="0%" stop-color="#70c6ff" stop-opacity="0.8" />
-              <stop offset="100%" stop-color="#72e0b5" stop-opacity="0.36" />
-            </linearGradient>
-            <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-            <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="9" result="blur" />
-              <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.26 0 0 0 0 0.65 0 0 0 0 1 0 0 0 0.8 0" />
-              <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-            <path id="inPathA" d="M24 245 C155 235, 185 315, 348 324" />
-            <path id="inPathB" d="M15 323 C145 318, 205 334, 348 334" />
-            <path id="inPathC" d="M22 405 C150 410, 210 355, 348 344" />
-            <path id="outPathA" d="M535 310 C630 302, 682 266, 805 257" />
-            <path id="outPathB" d="M535 334 C642 334, 701 334, 805 334" />
-            <path id="outPathC" d="M535 356 C634 366, 691 404, 805 412" />
-          </defs>
+      <div class="scroll-spacer" aria-hidden="true">
+        <section></section><section></section><section></section><section></section>
+      </div>
+    </main>
 
-          <g class="incoming-lines">
-            <path d="M20 230 C150 210, 190 312, 353 326" />
-            <path d="M12 252 C150 246, 205 317, 353 329" />
-            <path d="M8 277 C140 278, 205 321, 353 331" />
-            <path d="M7 305 C145 305, 220 328, 353 333" />
-            <path d="M7 333 C150 333, 225 333, 353 335" />
-            <path d="M8 361 C150 360, 220 343, 353 337" />
-            <path d="M10 390 C142 392, 210 351, 353 339" />
-            <path d="M18 421 C145 426, 195 360, 353 342" />
-            <path d="M28 450 C160 458, 193 370, 353 345" />
-          </g>
-
-          <g class="incoming-particles" aria-hidden="true">
-            <circle r="3" fill="#70c6ff"><animateMotion dur="4.8s" repeatCount="indefinite" begin="-1s"><mpath href="#inPathA" /></animateMotion></circle>
-            <circle r="2.4" fill="#77e0d0"><animateMotion dur="5.6s" repeatCount="indefinite" begin="-3.2s"><mpath href="#inPathB" /></animateMotion></circle>
-            <circle r="3.2" fill="#539ef4"><animateMotion dur="5.2s" repeatCount="indefinite" begin="-2.2s"><mpath href="#inPathC" /></animateMotion></circle>
-          </g>
-
-          <g class="fragment-field" aria-hidden="true">
-            <rect x="65" y="240" width="5" height="5" rx="1" />
-            <rect x="94" y="283" width="7" height="7" rx="1" />
-            <rect x="56" y="333" width="4" height="4" rx="1" />
-            <rect x="115" y="381" width="6" height="6" rx="1" />
-            <circle cx="138" cy="259" r="3" />
-            <circle cx="156" cy="352" r="2.5" />
-            <circle cx="82" cy="410" r="2.6" />
-            <rect x="177" y="300" width="5" height="5" rx="1" />
-            <rect x="192" y="396" width="8" height="8" rx="1" />
-            <circle cx="225" cy="343" r="3" />
-          </g>
-
-          <g class="orbit-system">
-            <circle class="orbit orbit-a" cx="445" cy="335" r="174" />
-            <circle class="orbit orbit-b" cx="445" cy="335" r="145" />
-            <circle class="orbit orbit-c" cx="445" cy="335" r="120" />
-            <circle class="ticks" cx="445" cy="335" r="104" />
-          </g>
-
-          <g class="connectors">
-            <path d="M445 216 L445 167" />
-            <path d="M349 278 L304 250" />
-            <path d="M541 278 L586 250" />
-            <path d="M376 420 L343 468" />
-            <path d="M514 420 L547 468" />
-          </g>
-
-          <g class="core" filter="url(#strongGlow)">
-            <circle class="core-halo" cx="445" cy="335" r="112" />
-            <circle class="core-disc" cx="445" cy="335" r="88" fill="url(#coreFill)" />
-            <circle class="core-edge" cx="445" cy="335" r="91" />
-            <circle class="core-inner" cx="445" cy="335" r="68" />
-            <text class="core-brand" x="445" y="325" text-anchor="middle">QEE</text>
-            <text class="core-label" x="445" y="358" text-anchor="middle">THE CLARITY ENGINE</text>
-          </g>
-
-          <g class="node node-finance" transform="translate(445 109)">
-            <circle r="58" fill="url(#nodeFill)" />
-            <circle class="node-ring" r="58" />
-            <g class="node-icon chart-icon" transform="translate(-20 -22)">
-              <rect x="1" y="23" width="8" height="22" rx="1" />
-              <rect x="16" y="13" width="8" height="32" rx="1" />
-              <rect x="31" y="2" width="8" height="43" rx="1" />
-            </g>
-            <text x="0" y="33" text-anchor="middle">FINANCE</text>
-          </g>
-
-          <g class="node node-audit" transform="translate(252 222)">
-            <circle r="54" fill="url(#nodeFill)" />
-            <circle class="node-ring" r="54" />
-            <g class="node-icon clipboard" transform="translate(-17 -25)">
-              <rect x="2" y="7" width="30" height="38" rx="5" />
-              <rect x="10" y="1" width="14" height="9" rx="3" />
-              <path d="M9 20 l4 4 l7 -8 M9 32 l4 4 l7 -8 M23 22 h5 M23 34 h5" />
-            </g>
-            <text x="0" y="27" text-anchor="middle">INTERNAL</text>
-            <text x="0" y="41" text-anchor="middle">AUDIT</text>
-          </g>
-
-          <g class="node node-risk" transform="translate(638 222)">
-            <circle r="54" fill="url(#nodeFill)" />
-            <circle class="node-ring" r="54" />
-            <g class="node-icon warning" transform="translate(-18 -27)">
-              <path d="M18 2 L35 35 H1 Z" />
-              <path d="M18 12 v12 M18 29 v1" />
-            </g>
-            <text x="0" y="34" text-anchor="middle">RISK</text>
-          </g>
-
-          <g class="node node-governance" transform="translate(330 513)">
-            <circle r="54" fill="url(#nodeFill)" />
-            <circle class="node-ring" r="54" />
-            <g class="node-icon government" transform="translate(-21 -29)">
-              <path d="M2 15 L21 4 L40 15 Z M7 17 H35 M10 20 V38 M18 20 V38 M26 20 V38 M34 20 V38 M6 41 H36" />
-            </g>
-            <text x="0" y="34" text-anchor="middle">GOVERNANCE</text>
-          </g>
-
-          <g class="node node-cyber" transform="translate(560 513)">
-            <circle r="54" fill="url(#nodeFill)" />
-            <circle class="node-ring node-ring-green" r="54" />
-            <g class="node-icon cyber" transform="translate(-19 -28)">
-              <path d="M19 2 L35 8 V22 C35 32 29 39 19 44 C9 39 3 32 3 22 V8 Z" />
-              <rect x="13" y="19" width="12" height="12" rx="2" />
-              <path d="M16 19 V15 C16 11 22 11 22 15 V19" />
-            </g>
-            <text x="0" y="34" text-anchor="middle">CYBERSECURITY</text>
-          </g>
-
-          <g class="output-lines">
-            <path d="M535 294 C626 287 682 245 805 245" />
-            <path d="M535 311 C630 310 694 287 805 287" />
-            <path d="M535 327 C635 327 700 327 805 327" />
-            <path d="M535 343 C636 343 701 367 805 367" />
-            <path d="M535 360 C630 366 685 407 805 407" />
-            <path d="M535 378 C620 390 670 448 805 448" />
-          </g>
-
-          <g class="outgoing-particles" aria-hidden="true">
-            <circle r="3" fill="#77d8ff"><animateMotion dur="4.5s" repeatCount="indefinite" begin="-0.8s"><mpath href="#outPathA" /></animateMotion></circle>
-            <circle r="2.5" fill="#83f0c9"><animateMotion dur="5s" repeatCount="indefinite" begin="-2.7s"><mpath href="#outPathB" /></animateMotion></circle>
-            <circle r="3" fill="#72b6ff"><animateMotion dur="5.4s" repeatCount="indefinite" begin="-1.6s"><mpath href="#outPathC" /></animateMotion></circle>
-          </g>
-
-          <g class="output-dots" aria-hidden="true">
-            <g transform="translate(790 235)">
-              <circle cx="0" cy="0" r="3"/><circle cx="15" cy="0" r="3"/><circle cx="30" cy="0" r="3"/>
-              <circle cx="0" cy="15" r="3"/><circle cx="15" cy="15" r="3"/><circle cx="30" cy="15" r="3"/>
-            </g>
-            <g transform="translate(790 317)">
-              <circle cx="0" cy="0" r="3"/><circle cx="15" cy="0" r="3"/><circle cx="30" cy="0" r="3"/>
-              <circle cx="0" cy="15" r="3"/><circle cx="15" cy="15" r="3"/><circle cx="30" cy="15" r="3"/>
-            </g>
-            <g transform="translate(790 398)">
-              <circle cx="0" cy="0" r="3"/><circle cx="15" cy="0" r="3"/><circle cx="30" cy="0" r="3"/>
-              <circle cx="0" cy="15" r="3"/><circle cx="15" cy="15" r="3"/><circle cx="30" cy="15" r="3"/>
-            </g>
-          </g>
-        </svg>
+    <section class="after-hero" id="services">
+      <div class="shell after-grid">
+        <p>Interactive concept</p>
+        <h2>A smooth physical metaphor for QEE: fragmented signals pass through assurance and become clear, structured decisions.</h2>
       </div>
     </section>
 
-    <div class="prototype-note" aria-hidden="true">Animated hero concept</div>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

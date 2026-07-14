@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QEE interactive clarity and assurance hero concept." />
+    <meta name="theme-color" content="#041012" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      document.documentElement.classList.add('has-js');
+      window.__qeeBootFallback = window.setTimeout(function () {
+        document.documentElement.classList.add('is-ready');
+        document.body && document.body.classList.remove('is-loading');
+      }, 9000);
+    </script>
+    <style>
+      html, body { margin: 0; min-height: 100%; background: #041012; }
+      body.is-loading { overflow: hidden; }
+      body.is-loading > :not(#boot-screen) { visibility: hidden; }
+      #boot-screen {
+        position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center;
+        overflow: hidden; color: #f4f7f3; background:
+          radial-gradient(circle at 50% 48%, rgba(40,215,209,.11), transparent 30%),
+          #041012;
+        font-family: Manrope, system-ui, sans-serif;
+        opacity: 1; visibility: visible;
+        transition: opacity .58s cubic-bezier(.22,.75,.25,1), visibility .58s step-end;
+      }
+      #boot-screen::before, #boot-screen::after {
+        content: ""; position: absolute; border-radius: 50%;
+        border: 1px solid rgba(165,242,238,.08);
+      }
+      #boot-screen::before { width: 27rem; height: 27rem; animation: boot-orbit 8s linear infinite; }
+      #boot-screen::after { width: 19rem; height: 19rem; animation: boot-orbit 6s linear infinite reverse; }
+      .boot-inner { position: relative; display: grid; justify-items: center; gap: 14px; text-align: center; }
+      .boot-brand { font-family: "Cormorant Garamond", Georgia, serif; font-size: 36px; font-weight: 600; letter-spacing: .06em; }
+      .boot-progress { width: 150px; height: 1px; margin-top: 7px; overflow: hidden; background: rgba(244,247,243,.11); }
+      .boot-progress span { display: block; width: 43%; height: 100%; background: #54ddd7; animation: boot-line 1.25s ease-in-out infinite; }
+      .boot-label { margin: 0; color: rgba(244,247,243,.48); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+      html.is-ready #boot-screen { opacity: 0; visibility: hidden; pointer-events: none; }
+      @keyframes boot-line { from { transform: translateX(-120%); } to { transform: translateX(350%); } }
+      @keyframes boot-orbit { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { #boot-screen::before, #boot-screen::after, .boot-progress span { animation: none; } }
+    </style>
+    <title>QEE — Clarity Orbit</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="./assets/index-FbISpStd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B7swD_OQ.css">
+  </head>
+  <body class="is-loading">
+    <div id="boot-screen" role="status" aria-label="Loading QEE experience">
+      <div class="boot-inner">
+        <div class="boot-brand">QEE</div>
+        <div class="boot-progress" aria-hidden="true"><span></span></div>
+        <p class="boot-label">Aligning clarity and assurance</p>
+      </div>
+    </div>
+
+    <main class="experience" id="top">
+      <div class="sticky-hero">
+        <div class="scene-wrap" aria-hidden="true">
+          <canvas id="scene"></canvas>
+          <div class="scene-shade"></div>
+          <div class="scene-grain"></div>
+        </div>
+
+        <header class="site-header shell">
+          <a class="brand" href="#top" aria-label="QEE home">QEE</a>
+
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#insights">Blog</a>
+            <a href="#contact">Contact</a>
+            <a class="nav-cta" href="#contact">Schedule a consultation <span>↗</span></a>
+          </nav>
+        </header>
+
+        <div class="copy-layer shell" aria-live="polite">
+          <article class="scene-copy scene-copy--0 is-active" data-copy="0">
+            <p class="eyebrow"><span>01</span> QUALITY · EFFICIENCY · EFFECTIVENESS</p>
+            <h1>Turn uncertainty into<br /><em>confident decisions.</em></h1>
+            <p class="intro">QEE brings financial clarity, risk visibility, stronger governance, and actionable insight to organizations that need to operate smarter.</p>
+            <div class="actions">
+              <a class="button button-primary" href="#contact">Schedule a consultation <i>↗</i></a>
+              <a class="button button-secondary" href="#services">Explore our services <i>→</i></a>
+            </div>
+          </article>
+
+          <article class="scene-copy scene-copy--1" data-copy="1">
+            <p class="eyebrow"><span>02</span> INTERNAL AUDIT & RISK MANAGEMENT</p>
+            <h2>Make hidden risk<br /><em>visible early.</em></h2>
+            <p class="intro">Independent assurance and risk-based audit reveal the signals that matter before uncertainty becomes operational impact.</p>
+          </article>
+
+          <article class="scene-copy scene-copy--2" data-copy="2">
+            <p class="eyebrow"><span>03</span> FINANCE · GOVERNANCE · CYBERSECURITY</p>
+            <h2>Align every control<br />around one <em>clear view.</em></h2>
+            <p class="intro">Financial management, IT governance, cybersecurity, and assurance converge into a coordinated system leaders can understand and trust.</p>
+          </article>
+
+          <article class="scene-copy scene-copy--3" data-copy="3">
+            <p class="eyebrow"><span>04</span> ACTIONABLE INSIGHT & PERFORMANCE</p>
+            <h2>Clarity that moves<br />the whole <em>organization.</em></h2>
+            <p class="intro">The QEE framework turns assessment into practical action—improving quality, efficiency, effectiveness, compliance, and sustainable performance.</p>
+            <div class="actions">
+              <a class="button button-primary" href="#contact">Work with QEE <i>↗</i></a>
+            </div>
+          </article>
+        </div>
+
+        <aside class="stage-meter" aria-hidden="true">
+          <div class="meter-line"><span id="meter-fill"></span></div>
+          <ol>
+            <li class="is-active" data-meter="0"><span>01</span> Complexity</li>
+            <li data-meter="1"><span>02</span> Assurance</li>
+            <li data-meter="2"><span>03</span> Insight</li>
+            <li data-meter="3"><span>04</span> Performance</li>
+          </ol>
+        </aside>
+
+        <div class="hero-footer shell">
+          <div class="scroll-cue"><span></span> Scroll to bring the system into focus</div>
+          <div class="system-state"><i></i><span id="system-state">SIGNALS ENTERING</span></div>
+        </div>
+
+        <div class="cursor-orbit" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="scroll-spacer" aria-hidden="true">
+        <section></section><section></section><section></section><section></section>
+      </div>
+    </main>
+
+    <section class="after-hero" id="services">
+      <div class="shell after-grid">
+        <p>Interactive concept</p>
+        <h2>A smooth physical metaphor for QEE: fragmented signals pass through assurance and become clear, structured decisions.</h2>
+      </div>
+    </section>
+
+  </body>
+</html>
